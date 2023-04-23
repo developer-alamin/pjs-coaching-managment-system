@@ -33,7 +33,7 @@ Route::get('/', function () {
 });
 
 
-Route::post('/register',[addController::class,'register']);
+Route::post('/storeRegister',[addController::class,'storeRegister'])->name('store.register');
 Route::get('/getregister',[addController::class,'getregister']);
 
 
@@ -100,14 +100,19 @@ Route::post('/hscUpdate',[hscController::class,'hscUpdate']);
 Route::post('/hscDelete',[hscController::class,'hscDelete']);
 /*hsc route work end form here*/
 
+Route::post('/CreateTest',[siteController::class,'CreateTest'])->name('CreateTest');
 
+Route::get('/test',[siteController::class,'test'])->name('test');
+
+Route::get('/photo',[siteController::class,'photo'])->name('photo');
 
 
 
 
 Route::prefix('admin')->group(function () {
     Route::get('/',[homeController::class,'home']);
-    Route::get('/register',[register::class,'register']);
+    Route::get('/addregister',[register::class,'addregister']);
+    Route::get('/viewregister',[register::class,'viewregister']);
 
     Route::get('/five',[fiveController::class,'five']);
     Route::get('/six',[sixController::class,'six']);
@@ -118,6 +123,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/ssc',[sscController::class,'ssc']);
     Route::get('/collage',[collageController::class, 'collage']);
     Route::get('/hsc',[hscController::class, 'hsc']);
+    Route::get('/test',[siteController::class, 'test']);
+    
 });
 
 

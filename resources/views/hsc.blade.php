@@ -1,38 +1,44 @@
 @extends('admin.app')
 @section('title','Admin | HSC')
 @section('content')
-	<div class="hscRootDiv">
-		<div class="hscTitleDiv">
-			<h4 class="hscTitle">HSC Student Table</h4>
-			 <img src="{{asset('img/pjs.jpg')}}" class="previewImg">
-		</div>
-		<div class="hscTableDiv">
-			<table id="StudentTable" class="d-none table table-hover table-bordered table-striped">
-				<thead class="thead">
-					<tr>
-						<th>Name</th>
-						<th>Father Name</th>
-						<th>Mother Name</th>
-						<th>Email</th>
-						<th>Student Id</th>
-						<th>Phone</th>
-						<th>Post</th>
-						<th>Class</th>
-						<th>Taka</th>
-						<th>Img</th>
-						<th>Edit</th>
-						<th>Delete</th>
-					</tr>
-				</thead>
-				<tbody class="hscTbody">
-					
-				</tbody>
-			</table>
-		</div>
-	</div>
-	<div class="loaderDiv mt-5">
-      <span class="loader m-auto"></span>
-   </div>
+<br>
+<div class="hscStudentDiv">
+  <div class="card">
+    <div class="card-header">
+       <strong>Collage Student Table</strong>
+       <img src="{{asset('img/pjs.jpg')}}" style="float: right">
+    </div>
+    <div class="card-body">
+      <table id="StudentTable" class="d-none table table-hover table-bordered table-striped">
+        <thead class="thead">
+          <tr>
+            <th>Name</th>
+            <th>Father Name</th>
+            <th>Mother Name</th>
+            <th>Email</th>
+            <th>Student Id</th>
+            <th>Phone</th>
+            <th>Post</th>
+            <th>Class</th>
+            <th>Taka</th>
+            <th>Img</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody class="hscTbody">
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+	<div class="loading">
+    <span class="DisplayLoader"></span>
+  </div>
+
+   
     <div class="notfundImgDiv d-none">
 	   <img class="" src="{{asset('img/no_data_found_4x.webp')}}">
 	</div>
@@ -164,7 +170,7 @@
         .then(function (response) {
           if (response.status == 200) {
             $('#StudentTable').removeClass('d-none');
-            $('.loader').addClass('d-none');
+            $('.DisplayLoader').addClass('d-none');
 
             $('#StudentTable').DataTable().destroy();
             $('.hscTbody').empty();
@@ -212,12 +218,12 @@
 
           } else {
             $('.notfundImgDiv').removeClass('d-none');
-            $('.loader').addClass('d-none');
+            $('.DisplayLoader').addClass('d-none');
           }
         })
         .catch(function (error) {
           $('.notfundImgDiv').removeClass('d-none');
-          $('.loader').addClass('d-none');
+          $('.DisplayLoader').addClass('d-none');
         });
 	}
 

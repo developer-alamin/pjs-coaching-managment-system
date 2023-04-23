@@ -7,9 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class register extends Controller
 {
-    public function register($value='')
+	public function addregister($value='')
+	{
+		return view('addregister');
+	}
+    public function viewregister($value='')
     {
-    	return view('register');
+    	return view('viewregister');
     }
 
     

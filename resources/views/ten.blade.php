@@ -1,38 +1,42 @@
 @extends('admin.app')
 @section('title','Admin | Ten')
 @section('content')
-	<div class="tenRootDiv">
-		<div class="tenTitleDiv">
-			<h4 class="tenTitle">Ten Student Table</h4>
-			 <img src="{{asset('img/pjs.jpg')}}" class="previewImg">
-		</div>
-		<div class="tenTableDiv">
-			<table id="StudentTable" class="d-none table table-hover table-bordered table-striped">
-				<thead class="thead">
-					<tr>
-						<th>Name</th>
-						<th>Father Name</th>
-						<th>Mother Name</th>
-						<th>Email</th>
-						<th>Student Id</th>
-						<th>Phone</th>
-						<th>Post</th>
-						<th>Class</th>
-						<th>Taka</th>
-						<th>Img</th>
-						<th>Edit</th>
-						<th>Delete</th>
-					</tr>
-				</thead>
-				<tbody class="tenTbody">
-					
-				</tbody>
-			</table>
-		</div>
-	</div>
-	<div class="loaderDiv mt-5">
-      <span class="loader m-auto"></span>
-   </div>
+<br>
+<div class="tenStudentdataDiv">
+  <div class="card">
+    <div class="card-header">
+      <strong>Ten Student Table</strong>
+     <img src="{{asset('img/pjs.jpg')}}" style="float: right">
+    </div>
+    <div class="card-body">
+      <table id="StudentTable" class="d-none table table-hover table-bordered table-striped">
+        <thead class="thead">
+          <tr>
+            <th>Name</th>
+            <th>Father Name</th>
+            <th>Mother Name</th>
+            <th>Email</th>
+            <th>Student Id</th>
+            <th>Phone</th>
+            <th>Post</th>
+            <th>Class</th>
+            <th>Taka</th>
+            <th>Img</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody class="tenTbody">
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+	<div class="loading">
+  <span class="DisplayLoader"></span>
+</div>
     <div class="notfundImgDiv d-none">
 	   <img class="" src="{{asset('img/no_data_found_4x.webp')}}">
 	</div>
@@ -164,7 +168,7 @@ function getTen() {
         .then(function (response) {
           if (response.status == 200) {
             $('#StudentTable').removeClass('d-none');
-            $('.loader').addClass('d-none');
+            $('.DisplayLoader').addClass('d-none');
 
             $('#StudentTable').DataTable().destroy();
             $('.tenTbody').empty();
@@ -208,12 +212,12 @@ function getTen() {
 
           } else {
             $('.notfundImgDiv').removeClass('d-none');
-            $('.loader').addClass('d-none');
+            $('.DisplayLoader').addClass('d-none');
           }
         })
         .catch(function (error) {
           $('.notfundImgDiv').removeClass('d-none');
-          $('.loader').addClass('d-none');
+          $('.DisplayLoader').addClass('d-none');
         });
   }
 

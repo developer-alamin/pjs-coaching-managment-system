@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\addModel;
+use App\Models\studentRegister;
 use Illuminate\Support\Facades\Storage;
-use App\Models\employeModel;
 
 class sixController extends Controller
 {
@@ -16,13 +15,13 @@ class sixController extends Controller
 
     public function getSix(Request $req)
     {
-    	$getSix = addModel::where('class','Six')->get();
+    	$getSix = studentRegister::where('class','Six')->get();
     	return $getSix;
     }
     public function sixEditShow(Request $req)
     {
     	$id = $req->input('id');
-    	$data = addModel::where('id',$id)->get();
+    	$data = studentRegister::where('id',$id)->get();
     	return $data;
     }
 
@@ -45,7 +44,7 @@ class sixController extends Controller
             Storage::delete('public/img/'.$updateEnd);
            
 
-            $update = addModel::where('id',$request->updateId)->update([
+            $update = studentRegister::where('id',$request->updateId)->update([
                 'name'=>$request->upname,
                 'fname'=>$request->upfname,
                 'mname'=>$request->upmname,
@@ -61,7 +60,7 @@ class sixController extends Controller
             ]);
 
         }else{
-            $update = addModel::where('id',$request->updateId)->update([
+            $update = studentRegister::where('id',$request->updateId)->update([
                 'name'=>$request->upname,
                 'fname'=>$request->upfname,
                 'mname'=>$request->upmname,
@@ -83,14 +82,14 @@ class sixController extends Controller
     public function sixDelete(Request $request)
     {
     		$deleteId = $request->id;
-           $delete = addModel::find($deleteId);
+           $delete = studentRegister::find($deleteId);
            $deleteImg = $delete->img;
 
            $explode = explode('/',$deleteImg);
            $imgEnd = end($explode);
 
           if (Storage::delete('public/img/'.$imgEnd)) {
-            $dataDelete = addModel::destroy($deleteId);
+            $dataDelete = studentRegister::destroy($deleteId);
           }
           return $dataDelete;
     }

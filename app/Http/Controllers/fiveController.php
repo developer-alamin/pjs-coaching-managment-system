@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\addModel;
+use App\Models\studentRegister;
 use Illuminate\Support\Facades\Storage;
-use App\Models\employeModel;
 
 
 class fiveController extends Controller
@@ -18,7 +17,7 @@ class fiveController extends Controller
 
     public function getFive(Request $req)
     {
-    	$getFive = addModel::where('class','Five')->get();
+    	$getFive = studentRegister::where('class','Five')->get();
     	return $getFive;
     }
 
@@ -27,7 +26,7 @@ class fiveController extends Controller
     {
     	$id = $req->input('id');
 
-    	$EditFiveShow = addModel::where('id',$id)->get();
+    	$EditFiveShow = studentRegister::where('id',$id)->get();
     	return $EditFiveShow;
     }
 
@@ -52,7 +51,7 @@ class fiveController extends Controller
             Storage::delete('public/img/'.$updateEnd);
            
 
-            $update = addModel::where('id',$request->updateId)->update([
+            $update = studentRegister::where('id',$request->updateId)->update([
                 'name'=>$request->upname,
                 'fname'=>$request->upfname,
                 'mname'=>$request->upmname,
@@ -68,7 +67,7 @@ class fiveController extends Controller
             ]);
 
         }else{
-            $update = addModel::where('id',$request->updateId)->update([
+            $update = studentRegister::where('id',$request->updateId)->update([
                 'name'=>$request->upname,
                 'fname'=>$request->upfname,
                 'mname'=>$request->upmname,
@@ -90,14 +89,14 @@ class fiveController extends Controller
     public function FiveDelete(Request $req)
     {
            $deleteId = $req->id;
-           $delete = addModel::find($deleteId);
+           $delete = studentRegister::find($deleteId);
            $deleteImg = $delete->img;
 
            $explode = explode('/',$deleteImg);
            $imgEnd = end($explode);
 
           if (Storage::delete('public/img/'.$imgEnd)) {
-            $dataDelete = addModel::destroy($deleteId);
+            $dataDelete = studentRegister::destroy($deleteId);
           }
           return $dataDelete;
 

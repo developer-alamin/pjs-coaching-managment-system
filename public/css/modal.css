@@ -1,5 +1,5 @@
 /*registration css start form here*/
-button.registration.btn {margin-left: auto;font-weight: bold;letter-spacing: 3px;font-size: 20px;border-radius: 10px;color: #1769ff;text-shadow: 1px 0px 1px #cae4ff;}
+a.registration.btn {margin-left: auto;font-weight: bold;letter-spacing: 3px;font-size: 20px;border-radius: 10px;color: #1769ff;text-shadow: 1px 0px 1px #cae4ff;}
 .registerTitle {
     display: flex;
     background: #c6cdff;

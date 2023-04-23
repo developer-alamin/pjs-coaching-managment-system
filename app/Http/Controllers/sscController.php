@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Models\addModel;
+use App\Models\studentRegister;
 
 
 class sscController extends Controller
@@ -16,14 +16,14 @@ class sscController extends Controller
 
     public function getssc(Request $req)
     {
-    	$getssc = addModel::where('class','SSC')->get();
+    	$getssc = studentRegister::where('class','SSC')->get();
     	return $getssc;
     }
 
     public function sscEditShow(Request $req)
     {
     	$id = $req->id;
-    	$data = addModel::where('id',$id)->get();
+    	$data = studentRegister::where('id',$id)->get();
     	return $data;
     }
 
@@ -45,7 +45,7 @@ class sscController extends Controller
             Storage::delete('public/img/'.$updateEnd);
            
 
-            $update = addModel::where('id',$request->updateId)->update([
+            $update = studentRegister::where('id',$request->updateId)->update([
                 'name'=>$request->upname,
                 'fname'=>$request->upfname,
                 'mname'=>$request->upmname,
@@ -61,7 +61,7 @@ class sscController extends Controller
             ]);
 
         }else{
-            $update = addModel::where('id',$request->updateId)->update([
+            $update = studentRegister::where('id',$request->updateId)->update([
                 'name'=>$request->upname,
                 'fname'=>$request->upfname,
                 'mname'=>$request->upmname,
@@ -82,14 +82,14 @@ class sscController extends Controller
      public function sscDelete(Request $request)
     {
     		$deleteId = $request->id;
-           $delete = addModel::find($deleteId);
+           $delete = studentRegister::find($deleteId);
            $deleteImg = $delete->img;
 
            $explode = explode('/',$deleteImg);
            $imgEnd = end($explode);
 
           if (Storage::delete('public/img/'.$imgEnd)) {
-            $dataDelete = addModel::destroy($deleteId);
+            $dataDelete = studentRegister::destroy($deleteId);
           }
           return $dataDelete;
     }

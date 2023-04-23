@@ -1,46 +1,44 @@
 @extends('admin.app')
 @section('title','Admin | Seven')
 @section('content')
-	<div class="sevenRootDiv">
-		<div class="sevenTitleDiv">
-			<h4 class="sevenTitle">Seven Student Table</h4>
-			 <img src="{{asset('img/pjs.jpg')}}" class="previewImg">
-		</div>
-		<div class="sevenTableDiv">
-			<table id="StudentTable" class="table table-hover table-bordered table-striped">
-				<thead class="thead">
-					<tr>
-						<th>Name</th>
-						<th>Father Name</th>
-						<th>Mother Name</th>
-						<th>Student Id</th>
-						<th>Phone</th>
-						<th>Post</th>
-						<th>Category</th>
-						<th>Class</th>
-						<th>Taka</th>
-						<th>Img</th>
-						<th>Edit</th>
-						<th>Delete</th>
-					</tr>
-				</thead>
-				<tbody class="sevenTbody">
-					
-				</tbody>
-			</table>
-		</div>
-	</div>
-	
-	<div class="loaderDiv mt-5">
-      <span class="loader m-auto"></span>
-   </div>
-    <div class="notfundImgDiv d-none">
-	   <img class="" src="{{asset('img/no_data_found_4x.webp')}}">
-	</div>
-
+<br>
+<div class="sevenStudentData">
+  <div class="card">
+    <div class="card-header">
+      <strong>PJS Seven Student Data</strong>
+      <img src="{{asset('img/pjs.jpg')}}" style="float: right">
+    </div>
+    <div class="card-body">
+      <table id="StudentTable" class="table table-hover table-bordered table-striped">
+        <thead class="thead">
+          <tr>
+            <th>Name</th>
+            <th>Father Name</th>
+            <th>Mother Name</th>
+            <th>Student Id</th>
+            <th>Phone</th>
+            <th>Post</th>
+            <th>Category</th>
+            <th>Class</th>
+            <th>Taka</th>
+            <th>Img</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody class="sevenTbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="loading">
+  <span class="DisplayLoader"></span>
+</div>
+<div class="notfundImgDiv d-none">
+  <img class="" src="{{asset('img/no_data_found_4x.webp')}}">
+</div>
 {{-- Seven edit modal show start form here --}}
-<div class="modal fade" id="sevenUpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-  data-bs-backdrop="static" aria-hidden="true">
+<div class="modal fade" id="sevenUpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
   <div class="modal-dialog modal-lg ">
     <div class="modal-content">
       <div class="modal-header">
@@ -50,14 +48,12 @@
         </div>
       </div>
       <div class="UpdateShowImg">
-         <div class="EditLoaderSpan m-auto"></div>
-         <img src="" class="updatePreview">
-      </div> 
-      <form id="UpdateForm" class="" enctype="multipart/form-data">
-        @csrf
-        <div class="modal-body p-4 bg-light">
+        <div class="EditLoaderSpan m-auto"></div>
+        <img src="" class="updatePreview">
+      </div>
+      <form id="UpdateForm" class="" enctype="multipart/form-data"> @csrf <div class="modal-body p-4 bg-light">
           <input type="hidden" id="updateId" name="updateId">
-            <input type="hidden" name="preImg" id="preImg">
+          <input type="hidden" name="preImg" id="preImg">
           <div class="form-row">
             <div class="col-lg-4">
               <label for="upimg">Image:</label>
@@ -68,13 +64,13 @@
               <input type="text" id="upname" name="upname" class="form-control">
             </div>
             <div class="col-4">
-                <label for="upfname">Father's Name:</label>
-                <input type="text" name="upfname" id="upfname" class="form-control">
+              <label for="upfname">Father's Name:</label>
+              <input type="text" name="upfname" id="upfname" class="form-control">
             </div>
-        </div>
-        <br>
-        <div class="form-row">
-           <div class="col-4">
+          </div>
+          <br>
+          <div class="form-row">
+            <div class="col-4">
               <label for="upmname">Mother's Name:</label>
               <input type="text" name="upmname" id="upmname" class="form-control">
             </div>
@@ -86,14 +82,14 @@
               <label for="studentid">Student Id:</label>
               <input type="number" name="upstudentid" id="upstudentid" class="form-control">
             </div>
-        </div>
-        <br>
-        <div class="form-row">
-          <div class="col-4">
+          </div>
+          <br>
+          <div class="form-row">
+            <div class="col-4">
               <label for="upphone">Phone:</label>
               <input type="number" name="upphone" id="upphone" class="form-control">
             </div>
-           <div class="col-4">
+            <div class="col-4">
               <label for="uppost">Post(Hobby):</label>
               <input type="text" name="uppost" id="uppost" class="form-control">
             </div>
@@ -106,10 +102,10 @@
                 <option>Madrasah </option>
               </select>
             </div>
-        </div>
-        <br>
-        <div class="form-row">
-          <div class="col-4">
+          </div>
+          <br>
+          <div class="form-row">
+            <div class="col-4">
               <label for="upclass">Class:</label>
               <select class="form-select class" name="upclass" id="upclass">
                 <option>Select Class</option>
@@ -124,7 +120,7 @@
                 <option>HSC</option>
               </select>
             </div>
-           <div class="col-4">
+            <div class="col-4">
               <label for="uptaka">Taka:</label>
               <select class="form-select taka" name="uptaka" id="uptaka">
                 <option>Select Taka</option>
@@ -136,24 +132,22 @@
               </select>
             </div>
             <div class="col-4">
-                <label for="upvillage">Village:</label>
-                <input type="text" name="upvillage" id="upvillage" class="form-control">
+              <label for="upvillage">Village:</label>
+              <input type="text" name="upvillage" id="upvillage" class="form-control">
             </div>
-        </div>
-        <div class="notfundImgDiv d-none">
-          <img class="" src="{{asset('img/no_data_found_4x.webp')}}">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-          <button type="submit" id="updateStudent" class="btn btn-primary">Update</button>
-        </div>
+          </div>
+          <div class="notfundImgDiv d-none">
+            <img class="" src="{{asset('img/no_data_found_4x.webp')}}">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+            <button type="submit" id="updateStudent" class="btn btn-primary">Update</button>
+          </div>
       </form>
     </div>
   </div>
 </div>
 {{-- Seven edit modal show end form here --}}
-
-
 @endsection
 @section('script')
 <script type="text/javascript">
@@ -167,7 +161,7 @@ function getSeven() {
         .then(function (response) {
           if (response.status == 200) {
             $('#StudentTable').removeClass('d-none');
-            $('.loader').addClass('d-none');
+            $('.DisplayLoader').addClass('d-none');
 
             $('#StudentTable').DataTable().destroy();
             $('.sevenTbody').empty();
@@ -212,12 +206,12 @@ function getSeven() {
 
           } else {
             $('.notfundImgDiv').removeClass('d-none');
-            $('.loader').addClass('d-none');
+            $('.DisplayLoader').addClass('d-none');
           }
         })
         .catch(function (error) {
           $('.notfundImgDiv').removeClass('d-none');
-          $('.loader').addClass('d-none');
+          $('.DisplayLoader').addClass('d-none');
         });
   }
 function sevenEditShow(id) {
