@@ -55,7 +55,7 @@
 		<div class="card">
 			<div class="card-header">
 				<h5 style="color: green">Pjs Coaching Center Registration Form....</h5>
-				<img src="{{ asset('storage/img/1682270041.jpg') }}" id="registerImg">
+				<img src="{{ asset('storage/img/1682311749.jpg') }}" id="registerImg">
 			</div>
 			<div class="card-body">
 				 @if(Session::get('success'))
