@@ -20,12 +20,12 @@ class addController extends Controller
         ]);
 
         $http = $_SERVER['HTTP_HOST'];
-        $addimg = "http://".$http."/storage/img/";
+        $addimg = "http://".$http."/img/";
 
     	  $file = $request->file('image');
         $addFileName = $addimg.time().'.'.$file->getClientOriginalExtension();
    		  $fileName = time().'.'.$file->getClientOriginalExtension();
-        $file->storeAs('public/img/',$fileName);
+        $file->storeAs('img/',$fileName);
 
         try {
           studentRegister::insert([

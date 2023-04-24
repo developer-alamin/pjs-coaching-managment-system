@@ -104,9 +104,6 @@ Route::post('/CreateTest',[siteController::class,'CreateTest'])->name('CreateTes
 
 Route::get('/test',[siteController::class,'test'])->name('test');
 
-Route::get('/photo',[siteController::class,'photo'])->name('photo');
-
-
 
 
 Route::prefix('admin')->group(function () {

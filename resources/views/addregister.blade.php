@@ -38,6 +38,16 @@
 	    left: 0px;
 	}
 
+	i.fab.fa-telegram-plane {
+	    font-size: 31px;
+	}
+
+	button.btn.btn-success.form-control.col-5.m-auto {
+	    font-size: 29px;
+	    font-weight: bold;
+	    text-shadow: 2px 2px 2px #353395;
+	}
+
 </style>
 @endsection()
 <br>
@@ -45,7 +55,7 @@
 		<div class="card">
 			<div class="card-header">
 				<h5 style="color: green">Pjs Coaching Center Registration Form....</h5>
-				<img src="{{ asset('storage/img/no_data_found_4x.webp') }}" id="registerImg">
+				<img src="{{ asset('storage/img/1682270041.jpg') }}" id="registerImg">
 			</div>
 			<div class="card-body">
 				 @if(Session::get('success'))
@@ -158,7 +168,7 @@
 		          </div>
 		          <br>
 		          <div class="form-row">
-		          	<input type="submit" class="form-control col-5 m-auto" name="submit" value="Submit">
+		          	<button class="btn btn-success form-control col-5 m-auto"><i class='fab fa-telegram-plane'></i> Submit</button>
 		          </div>
 		      </form>
 			</div>

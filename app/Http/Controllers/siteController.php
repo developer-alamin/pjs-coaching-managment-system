@@ -48,12 +48,4 @@ class siteController extends Controller
      
   }
 
-
-  public function photo($value='')
-  {
-    echo 'storage';
-  }
-
-
-
 }
