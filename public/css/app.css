@@ -57,3 +57,35 @@ td.deleteTd {
     height: 100px;
 }
 /*td css end form here*/
+
+/*store css start form here*/
+label{
+        font-style: italic;
+}
+label.error{
+    font-style: italic;
+    color: red;
+}
+div.card div.card-header img{
+    width: 50px;
+    height: 50px;
+    float: right;
+    border-radius: 100%;
+    margin-top: -30px;
+}
+div.card div.card-header h5 {
+    font-size: 29px;
+    font-style: italic;
+    font-family: auto;
+}
+
+i.fab.fa-telegram-plane {
+    font-size: 31px;
+}
+
+button.btn.btn-success.form-control.col-5.m-auto {
+    font-size: 29px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #353395;
+}
+/*store css end form here*/

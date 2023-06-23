@@ -63,12 +63,6 @@ i.fa-trash {
 .upnothingData {
     text-align: center;
 }
-
-button#add_employee_btn {
-    width: 100px;
-    padding: 0px;
-    height: 39px;
-}
 button#updateButton {
     width: 100px;
     padding: 0px;
@@ -179,4 +173,15 @@ font{
     color: red;
     font-style: italic;
     font-weight: bold;
+}
+
+div#card-header {display: flex;align-items: center;}
+
+div#card-header button#add_Class {
+    margin-left: auto;
+}
+
+div#card-header h2 {
+    font-family: auto;
+    color: #90c96c;
 }

@@ -50,9 +50,13 @@ class Kernel extends HttpKernel
      *
      * These middleware may be assigned to groups or used individually.
      *
-     * @var array
+     * @var array 
      */
     protected $routeMiddleware = [
+        'studentAccess' => \App\Http\Middleware\studentAccess::class,
+        'adminLogin' => \App\Http\Middleware\adminMiddleware::class,
+        'studentAlreadyLogin' => \App\Http\Middleware\studentAlreadyLogin::class,
+        'studentLogin' => \App\Http\Middleware\studentMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

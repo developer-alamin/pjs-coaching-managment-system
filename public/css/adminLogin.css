@@ -1,0 +1,21 @@
+section#adminSection div.row{
+    min-height: 97vh;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    font-weight: bolder;
+}
+button.btn.form-control.adminLoginbtn {
+    font-weight: bold;
+    color: greenyellow;
+    font-size: 20px;
+    font-family: math;
+    border-radius: 6px;
+    background: #1c7cff;
+}
+
+label.error{
+    font-style: italic;
+    color: red;
+}
