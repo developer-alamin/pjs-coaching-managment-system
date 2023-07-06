@@ -16,7 +16,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img class="adminImg" src="{{ $data->admin_img; }}" alt=""></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="">Profile</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.profile') }}">Profile</a></li>
                 <li><a class="dropdown-item" href="">Logout</a></li>
             </ul>
         </li>
@@ -96,15 +96,28 @@
                              <a class="nav-link before" href="{{ url('admin/hsc') }}">View HSC</a>
                         </nav>
                     </div>
-                    <div class="managment"><h6>User Setting</h6></div>
+                    <div class="managment"><h6>Admin Setting</h6></div>
                     <a class="nav-link collapsed" href="" data-bs-toggle="collapse" data-bs-target="#userpage" aria-expanded="false" aria-controls="collapsePages">
                         <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
-                        Admin
+                        Verify
                         <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
                     </a>
                      <div class="collapse" id="userpage" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link before" href="">Add Admin</a>
+                            <a class="nav-link before" href="{{ route('admin.nonVerify') }}">Non Verify</a>
+                        </nav>
+                    </div>
+                    <div class="managment"><h6>Invoice System</h6></div>
+                    <a class="nav-link collapsed" href="" data-bs-toggle="collapse" data-bs-target="#invoicePage" aria-expanded="false" aria-controls="collapsePages">
+                        <div class="sb-nav-link-icon"><i class="fa fa-file-invoice-dollar"></i></div>
+                        Invoice
+                        <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
+                    </a>
+                     <div class="collapse" id="invoicePage" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link before" href="{{ url('/admin/invoice') }}">Add Invoice</a>
+                            <a class="nav-link before" href="{{ route('invoice.selectInvoiceMonth') }}">View Invoice</a>
+                            <a class="nav-link before" href="{{ route('invoice.selectInvoiceMonth') }}">Invoice Due</a>
                         </nav>
                     </div>
                 </div>

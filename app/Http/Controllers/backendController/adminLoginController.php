@@ -37,8 +37,6 @@ class adminLoginController extends Controller
       return back()->with('faild','please it is only for admin..Student Not Allow');
     }
   }
-
-
   function adminLogout(){
     if(Session::has('adminId')){
       Session::pull('adminId');

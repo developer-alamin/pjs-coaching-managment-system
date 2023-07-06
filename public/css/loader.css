@@ -170,3 +170,26 @@ div.EditLoaderSpan::after {
         transform: rotate(360deg);
     }
   } 
+
+
+/* profile loader css start form here */
+span.studentProfileLoader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #2000ff;
+  border-bottom-color: #00ff47;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: studentProrotation 1s linear infinite;
+  }
+
+  @keyframes studentProrotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
+/* profile loader css end form here */

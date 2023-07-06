@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\backendController;
 
 use Session;
-use Illuminate\Http\Request;
-use App\Models\student;
 use App\Models\admin;
-use Illuminate\Support\Facades\Storage;
+use App\Models\student;
+use Illuminate\Http\Request;
+use App\Models\studentVerify;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 
 class fiveController extends Controller
@@ -49,6 +50,7 @@ class fiveController extends Controller
             $addimg = "http://".$http."/storage/img/";
 
             $file = $request->file('upimg');
+            
             $addFileName = $addimg.time().'/'.date('Y').'/'.date('m').'.'.$file->getClientOriginalExtension();
             $fileName = time().'/'.date('Y').'/'.date('m').'.'.$file->getClientOriginalExtension();
            $file->storeAs('public/img/',$fileName);
@@ -87,6 +89,7 @@ class fiveController extends Controller
     {
            $deleteId = $req->id;
            $delete = student::find($deleteId);
+           $stuVeriIdDelete = studentVerify::where('student_id',$deleteId)->first();
            $deleteImg = $delete->student_img;
 
            $explode = explode('/',$deleteImg);
@@ -96,6 +99,7 @@ class fiveController extends Controller
 
           if (Storage::deleteDirectory('public/img/'.$imgLastEnd)) {
             $dataDelete = student::destroy($deleteId);
+            $stuVeriIdDelete->delete();
           }
           return $dataDelete;
 

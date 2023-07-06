@@ -51,7 +51,9 @@
         <div class="EditLoaderSpan m-auto"></div>
         <img src="" class="updatePreview">
       </div>
-      <form id="fiveUpdateForm" enctype="multipart/form-data"> @csrf <div class="modal-body p-4 bg-light">
+      <form id="fiveUpdateForm" enctype="multipart/form-data">
+         @csrf 
+         <div class="modal-body p-4 bg-light">
           <input type="number" id="updateId" name="updateId" class="form-control col-4 d-none">
           <input type="hidden" name="preImg" id="preImg">
           <div class="form-row">

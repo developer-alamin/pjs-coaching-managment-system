@@ -57,9 +57,9 @@ class addController extends Controller
           
           Mail::to($students->student_email)->send(new studentSendMail($students));
           
-          return back()->with('success','Registered Successfully..Check Your Email And Varify..'); 
+          return back()->with('success','Congratulations '.$students->student_name.' On Registration...Check Your Email To Verify Account'); 
         } catch (Exception $e) {
-           return redirect()->back()->with('error','Student Registered Faild');
+           return redirect()->back()->with('error','Sorry ! '.$request->name.'You failed to register..please try again');
         }
     }
 

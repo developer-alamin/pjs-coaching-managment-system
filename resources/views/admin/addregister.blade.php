@@ -1,31 +1,12 @@
 @extends('backend.app')
 @section('title','Admin | Add Register')
-@section('stylecss')
-<style type="text/css">
-	.alert.alert-success.alert-dismissible.fade.show {
-	    position: absolute;
-	    z-index: 1;
-	    min-width: 100%;
-	    top: 56px;
-	    left: 0px;
-	}
-	.alert.alert-error.alert-dismissible.fade.show {
-	    position: absolute;
-	    z-index: 1;
-	    min-width: 100%;
-	    top: 56px;
-	    left: 0px;
-	}
-
-</style>
-@endsection()
 @section('content')
 <br>
 	<div class="addRegisterDiv">
 		<div class="card">
 			<div class="card-header">
 				<h5 style="color: green">Pjs Coaching Center Registration Form....</h5>
-				<img src="{{ asset('img/pjs.jpg') }}" id="registerImg">
+				<img class="registerImg" src="{{ asset('img/pjs.jpg') }}" id="registerImg">
 			</div>
 			<div class="card-body">
 				 @if(Session::get('success'))
@@ -131,10 +112,6 @@
 		              <label for="con_pass">Confirm Password</label>
 		              <input type="password" name="con_pass" id="con_pass" class="form-control" placeholder="Your Confirm Password">
 		            </div>
-		             <div class="col-4">
-		              <label for="date">Date&Time:</label>
-		              <input type="text" name="date" id="date" class="form-control" placeholder="Date&Time">
-		            </div>
 		          </div>
 		          <br>
 		          <div class="form-row">
@@ -166,7 +143,7 @@
 
 	$(document).ready(function() {
 
-		$(".alert").delay(3000).slideUp(200, function() {
+		$(".alert").delay(12000).slideUp(200, function() {
 	        $(this).alert('close');
 	    });
 		$( "#date" ).datepicker({
@@ -203,16 +180,13 @@
                 password: {
                     required: true,
                     minlength: 5,
-                    maxlength: 7,
+                    maxlength: 7
                 },
                 con_pass: {
                     required: true,
                     minlength: 5,
                     maxlength: 7,
                     equalTo: "#password"
-                },
-                date:{
-                	required: true
                 }
             },
             messages: {
@@ -248,8 +222,7 @@
                     minlength: "Your password must be 5 characters",
                     maxlength: "Password No More Then 7 characters",
                     equalTo: "Please enter the same password as above"
-                },
-                date:"Please Your Date&Time",
+                }
             }
         });
 	}

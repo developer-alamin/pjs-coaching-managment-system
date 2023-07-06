@@ -76,17 +76,19 @@ class sevenController extends Controller
 
      public function sevenDelete(Request $request)
     {
-    		$deleteId = $request->id;
-           $delete = student::find($deleteId);
-           $deleteImg = $delete->student_img;
+        $deleteId = $request->id;
+        $delete = student::find($deleteId);
+        $deleteImg = $delete->student_img;
 
-           $explode = explode('/',$deleteImg);
-           $imgEnd = end($explode);
+        $explode = explode('/',$deleteImg);
+        $imgEnd = end($explode);
+        $imgSecondEnd = prev($explode);
+        $imgLastEnd = prev($explode);
 
-          if (Storage::delete('public/img/'.$imgEnd)) {
-            $dataDelete = student::destroy($deleteId);
-          }
-          return $dataDelete;
+      if (Storage::deleteDirectory('public/img/'.$imgLastEnd)) {
+        $dataDelete = student::destroy($deleteId);
+      }
+      return $dataDelete;
     }
 
 

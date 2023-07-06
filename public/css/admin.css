@@ -114,13 +114,6 @@ button.btn.addEmployee {
     color: #1414c5a6;
 }
 
-
-
-strong {
-    color: #70ff26eb;
-    font-family: initial;
-}
-
 .employeePreviewImg img {
     width: 75px;
     height: 75px;
@@ -160,11 +153,6 @@ p.statusactive {
     color: blue;
     font-weight: bold;
 }
-
-.col-4 div.card {
-    background: #c8c7d3e8;
-    opacity: 0.8;
-}
 a{
     text-decoration: none;
 }
@@ -184,4 +172,33 @@ div#card-header button#add_Class {
 div#card-header h2 {
     font-family: auto;
     color: #90c96c;
+}
+i.fa.fa-file-invoice-dollar{
+    font-size: 23px;
+    color: white;
+}
+
+p.unpaid {
+    color: #5b5055;
+    font-weight: bold;
+    background: #ff0ecb;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 2px;
+}
+p.paid {
+    background: green;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+}
+td.totalamountdue {
+    background: #333e8e;
+    color: white;
+    font-weight: bold;
+}
+i.material-icons-outlined{
+    cursor: pointer;
 }

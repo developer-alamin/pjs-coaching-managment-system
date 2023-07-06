@@ -12,7 +12,6 @@
         <table id="StudentTable" class=" table table-bordered table-hover table-striped">
           <thead class="thead">
             <tr>
-              <th>Id</th>
               <th>Name</th>
               <th>Father Name</th>
               <th>Mother Name</th>
@@ -81,8 +80,16 @@ $(document).ready(function () {
               var classs = "<td>" + getData[i].student_class + "</td>";
               var taka = "<td>" + getData[i].student_taka + "</td>";
               var img = "<td><img src='"+getData[i].student_img+"' style='width:50px;height:50px;'></td>";
-              $('<tr>').html(id+name+fname+mname+email+studentId+phone+post+category+classs+taka+img).appendTo('.registerTbody');
+             
+              $('<tr>').html(name+fname+mname+email+studentId+phone+post+category+classs+taka+img).appendTo('.registerTbody');
 
+            });
+
+            $('.eyevisible').click(function (e) { 
+              e.preventDefault();
+              var id = $(this).data('verify');
+              $('#stuEmailVerifyUpModal').modal('show');
+              $(".stuUpVerifyId").html(id);
             });
 
             $("#StudentTable").DataTable({

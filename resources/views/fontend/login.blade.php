@@ -60,7 +60,7 @@
                                 <button type="submit" class="col-6 btn form-control log_stu_btn">Login</button>
                             </div>
                             <br>
-                            <h6>Don't have an account ? <a href="" style="color:red;">Register</a></h6>
+                            <h6>Don't have an account ? <a href="" style="color:red;">Register</a> | <a href="{{ route('student.forgerPassword') }}" class="">Forget Password</a></h6>
                         </form>
 					</div>
 				</div>
@@ -78,7 +78,7 @@
      <script type="text/javascript" src="{{ asset('../js/jquery.validate.js') }}"></script>
 	<script type="text/javascript">
        $(document).ready(function() {
-            $(".alert").delay(3000).slideUp(200, function() {
+            $(".alert").delay(10000).slideUp(200, function() {
                 $(this).alert('close');
             });
              StudeLoginVali();
@@ -101,7 +101,7 @@
                     maxlength: "Password No More Then 7 characters" 
                 }
                 }
-            })
+            });
         }
 	</script>
 </body>

@@ -50,6 +50,11 @@
 								<div class="col-10 m-auto pt-4">
 									<button type="submit" class="btn form-control adminLoginbtn">Login</button>
 								</div>
+							</div><br>
+							<div class="form-row">
+								<div class="col-12 text-center">
+									<a href="{{ route('admin.getForgetPassword') }}">Forget Password</a>
+								</div>
 							</div>
 						</form>
 					</div>
@@ -68,7 +73,7 @@
      <script type="text/javascript" src="{{ asset('../js/jquery.validate.js') }}"></script>
 	<script>
 		$(document).ready(function() {
-			$(".alert").delay(3000).slideUp(200, function() {
+			$(".alert").delay(11000).slideUp(200, function() {
                 $(this).alert('close');
             });
 			adminLoginVali();

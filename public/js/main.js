@@ -47,7 +47,5 @@ $(document).ready(function() {
       toastr.options.timeOut = 3000;
       toastr.options.fadeOut = 3000;
       toastr.options.fadeIn = 3000;
-
 })
-
 
