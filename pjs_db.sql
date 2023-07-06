@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2023 at 11:25 AM
+-- Generation Time: Jul 06, 2023 at 10:59 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -46,7 +46,7 @@ CREATE TABLE `admin_td` (
 --
 
 INSERT INTO `admin_td` (`id`, `admin_name`, `admin_email`, `admin_mobile`, `admin_village`, `admin_post`, `admin_about`, `admin_img`, `admin_pass`, `created_at`, `updated_at`) VALUES
-(1, 'pjs', 'pjs@gmail.com', '01740138114', 'Kolla', 'Coaching Center', 'pjs Coaching Center', 'http://127.0.0.1:8000/storage/img/2371289313/2023/login.jpg', '$2y$10$Gvb4vipsdP7QxYpxs6.yZOGT0H7jA62BtNbiceJ9elDeDYK4W2xs.', NULL, NULL);
+(1, 'Alamin Ali', 'ma6033094@gmail.com', '0984902384', 'Doforpur', 'Billkola', 'My Name is alamin.i am a web developer...', 'http://127.0.0.1:8000/storage/img/1688191294/2023/07.jpg', '$2y$10$Mw5yVKLmBg05BtRoIrSRm.v0YWpZwL3SFQh.ekpdaZWRHuYelmfzO', NULL, '2023-07-06 02:39:27');
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,8 @@ CREATE TABLE `class_table` (
 --
 
 INSERT INTO `class_table` (`id`, `class_name`, `class_date`) VALUES
-(1, 'Five', 'Friday, 16 June, 2023');
+(1, 'Five', 'Wednesday, 28 June, 2023'),
+(2, 'Six', 'Wednesday, 28 June, 2023');
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,7 @@ CREATE TABLE `depart_table` (
 --
 
 INSERT INTO `depart_table` (`id`, `depart_name`, `depart_date`) VALUES
-(1, 'Atrs', 'Saturday, 17 June, 2023');
+(1, 'Arts', 'Wednesday, 28 June, 2023');
 
 -- --------------------------------------------------------
 
@@ -108,7 +109,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2023_05_04_034139_department_migration', 1),
 (4, '2023_05_04_083853_taka_migration', 1),
 (5, '2023_06_16_014024_users_verify_migration', 1),
-(6, '2023_06_19_015349_create_admins_table', 2);
+(6, '2023_06_19_015349_create_admins_table', 1),
+(7, '2023_06_24_032913_create_invoices_table', 1),
+(8, '2023_06_26_022635_invoice_rename', 2),
+(9, '2023_07_03_083521_create_stdent_pass_resets_table', 3),
+(10, '2023_07_03_083849_create_admin_pass_resets_table', 4);
 
 -- --------------------------------------------------------
 
@@ -127,7 +132,7 @@ CREATE TABLE `pjs_taka` (
 --
 
 INSERT INTO `pjs_taka` (`id`, `pjs_taka`, `taka_date`) VALUES
-(1, '200', 'Saturday, 17 June, 2023');
+(1, '100', 'Wednesday, 28 June, 2023');
 
 -- --------------------------------------------------------
 
@@ -160,7 +165,9 @@ CREATE TABLE `student_tb` (
 --
 
 INSERT INTO `student_tb` (`id`, `student_name`, `student_fname`, `student_mname`, `student_email`, `student_email_verified_at`, `student_studentId`, `student_phone`, `student_post`, `student_category`, `student_class`, `student_taka`, `student_village`, `student_pass`, `student_img`, `created_at`, `updated_at`) VALUES
-(19, 'Alamin', 'Majad', 'asdas', 'ma6033094@gmail.com', '2023-06-17 17:15:51', '1234567', '21312312314', 'asdasd', 'Arts', 'Five', '100', 'asdasd', '$2y$10$Gvb4vipsdP7QxYpxs6.yZOGT0H7jA62BtNbiceJ9elDeDYK4W2xs.', 'http://127.0.0.1:8000/storage/img/1687021704/2023/06.jpg', '2023-06-17 11:08:24', '2023-06-19 21:38:36');
+(4, 'abir', 'mijan', 'anua', 'mdalaminali125315@gmail.com', '2023-07-01 05:55:15', '12345456', '13424234333', 'Student', 'Arts', 'Five', '100', 'Kdsas', '$2y$10$oS/Y.8QHeNs96OqJ.iqCYuZ4ZhFr4/DfmdRXyLTuHOmL/NaqT1a..', 'http://127.0.0.1:8000/storage/img/1688190893/2023/07.jpg', '2023-06-30 23:54:54', '2023-06-30 23:55:15'),
+(5, 'maruf', 'aje', 'asd', 'alaminali121121@gmail.com', '2023-07-01 05:57:51', '1234243', '12312412322', 'Adas', 'Arts', 'Five', '100', 'ahnfjkas', '$2y$10$MVur3tJkWj0aAhJx6oJRVeQDWF2lc1pmF8o6Rm5SVTO8H2tw26b26', 'http://127.0.0.1:8000/storage/img/1688191043/2023/07.jpg', '2023-06-30 23:57:23', '2023-06-30 23:57:51'),
+(9, 'alamin', 'majad', 'asd', 'ma6033094@gmail.com', '2023-07-05 05:59:30', '1234567', '13213412431', 'sadasd', 'Arts', 'Five', '100', 'asda', '$2y$10$ge.7EiDjfKZ53gMmI6siMO/1yGhcwJlT/Q/98lbbtLWkF3/jaEiY2', 'http://127.0.0.1:8000/storage/img/1688536594/2023/07.jpg', '2023-07-04 23:56:34', '2023-07-06 02:50:07');
 
 -- --------------------------------------------------------
 
@@ -181,9 +188,14 @@ CREATE TABLE `student_verify` (
 --
 
 INSERT INTO `student_verify` (`id`, `student_token`, `student_id`, `created_at`, `updated_at`) VALUES
-(12, 'OascpVugm7cGHRgHmhBL6fujUzYsNG0otvf2Eke0', 17, '2023-06-17 03:36:09', '2023-06-17 03:36:09'),
-(13, 'WbFJnRmxDundiuDmvNYU0f0pMurQy5DOBZseYA4B', 18, '2023-06-17 11:06:11', '2023-06-17 11:06:11'),
-(14, 'YkIUwCc6zcazBebp47K0w3FAUgsk5VJHZwgNClIE', 19, '2023-06-17 11:08:24', '2023-06-17 11:08:24');
+(1, 'IjjKNEt5ogsNrRVDrCMNFGolEPSoimefUxuequTJ', 1, '2023-06-24 04:09:41', '2023-06-24 04:09:41'),
+(2, 'NmJb4FdnyptCNBO2hH2Jx9gtEQCHLqxBtAlm526K', 2, '2023-06-24 20:20:07', '2023-06-24 20:20:07'),
+(3, 'np2y6bFRgVpXP2D1Hvp80AVvbsStPWyr8ZNfv7Ay', 3, '2023-06-30 23:50:50', '2023-06-30 23:50:50'),
+(4, '7zpetpAEFrgHENSeqHtevZsLGTpvLgO7WHA3jntN', 4, '2023-06-30 23:54:54', '2023-06-30 23:54:54'),
+(5, 'rP1A7s8QnQ9Jss3M00pfmIuh1MozDpJzH1S6C6At', 5, '2023-06-30 23:57:23', '2023-06-30 23:57:23'),
+(6, 'D2QuTqumIFbSB5qg25GmcaFlQupRYAtz9luZr09D', 6, '2023-07-04 23:30:34', '2023-07-04 23:30:34'),
+(7, 'bhq0xpxDsmNZhHxY9K8U5CQ84L47Rrnl7QJfGea9', 7, '2023-07-04 23:33:27', '2023-07-04 23:33:27'),
+(9, 'bmV2hn5iXjwD5PJa9M3YsX6OoS0Yg24t2MLvvj8I', 9, '2023-07-04 23:56:34', '2023-07-04 23:56:34');
 
 --
 -- Indexes for dumped tables
@@ -245,7 +257,7 @@ ALTER TABLE `admin_td`
 -- AUTO_INCREMENT for table `class_table`
 --
 ALTER TABLE `class_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `depart_table`
@@ -257,7 +269,7 @@ ALTER TABLE `depart_table`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pjs_taka`
@@ -269,13 +281,13 @@ ALTER TABLE `pjs_taka`
 -- AUTO_INCREMENT for table `student_tb`
 --
 ALTER TABLE `student_tb`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `student_verify`
 --
 ALTER TABLE `student_verify`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
