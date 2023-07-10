@@ -2,13 +2,51 @@
 @section('title','Admin | Invoice View')
 @section('content')
 <br>
+    <div class="row">
+      <div class="container">
+        <div class="col-12 m-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Add Invoice Student</h4>
+                </div>
+                <div class="card-body">
+                    <form action="">
+                        <div class="form-row ">
+                            <div class="col-4">
+                                <label for="invStuId">Student Id:</label>
+                                <select name="invStuId" id="invStuId" class="form-select">
+                                    <option value="">Select Student Id</option>
+                                    @foreach ($studentId as $studentId)
+                                        <option value="">{{ $studentId->student_studentId }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-4 ">
+                                <label for="accordingMonth ">According:</label>
+                                <select name="accordingMonth" id="accordingMonth" class="form-select">
+                                    <option value="">According Month</option>
+                                    <option value="">{{ $invoiceMonthData[0]->invoice_month }}</option>
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <label for="" ></label>
+                                <button class="btn btn-primary form-control mt-2">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <br>
     <div class="card">
         <div class="card-header InvoiceMonthDueCardHeader">
             <h2>Data According to Your Month...{{ $invoiceMonthData[0]->invoice_month; }}</h2>
             <a href="{{ route('invoice.selectInvoiceMonth') }}" class="invoiceDueHome"><i class="fas fa-home"></i></a>
         </div>
         <div class="card-body">
-            <table class="table table-hover table-bordered table-striped">
+            <table id="dataTable" class="table table-hover table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -23,8 +61,9 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                @foreach ($invoiceMonthData as $value)
+               
                 <tbody>
+                    @foreach ($invoiceMonthData as $value)
                     <tr>
                         <td>{{ $value->id }}</td>
                         <td>{{ $value->invoice_name; }}</td>
@@ -42,8 +81,9 @@
                         <td>{{ $value->invoice_note }}</td>
                         <td><a href=""><i class="material-icons-outlined visible dueInvoiceEye" data-month="{{ $value->invoice_month}}" data-id="{{ $value->invoice_id }}">visibility</i></a></td>
                     </tr>
+                    @endforeach
                 </tbody>
-                @endforeach
+              
                 <tfoot>
                     <tr>
                         <th colspan="4"></th>
@@ -54,6 +94,7 @@
             </table>
         </div>
     </div>
+
 
     {{-- due invoice data show modal html code --}}
     <div class="modal fade" id="dueInvoiceModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
@@ -100,7 +141,8 @@
 @section('script')
     <script type="text/javascript">
     $(document).ready(function () {
-        
+        $('#dataTable').DataTable();
+        $('.datatablees_length').addClass('bs-select');
         dueInvoiceShow();
         dueInvoiceStatusUp();
     });

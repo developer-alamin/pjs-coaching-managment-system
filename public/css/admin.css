@@ -202,3 +202,15 @@ td.totalamountdue {
 i.material-icons-outlined{
     cursor: pointer;
 }
+span.dueSpan {
+    width: 50px;
+    height: 40px;
+    background: #5100e4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 100%;
+    color: white;
+    font-size: 20px;
+}

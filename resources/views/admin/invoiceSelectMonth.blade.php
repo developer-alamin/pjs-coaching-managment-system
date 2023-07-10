@@ -46,7 +46,7 @@
                     <tr>
                         <td>{{$key}}</td>
                         <td>{{ $value->invoice_month; }}</td>
-                        <td>1</td>
+                        <td><span class="dueSpan">{{ $value->where('invoice_month',$value->invoice_month)->where('invoice_status',0)->count() }}</span></td>
                         <td><a href="{{ route('invoice.viewInoiceData',[$value->invoice_month]) }}"><i class="material-icons-outlined visible">visibility</i></a></td>
                     </tr>
                 </tbody>

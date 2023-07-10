@@ -58,12 +58,12 @@ class invoiceController extends Controller
 
     function test(){
 
+        $aaa = array();
         $aaa = invoice::groupBy('invoice_month')->get();
+       
        foreach($aaa as $key => $aaa){
             $month = $aaa->invoice_month.' ';
-            $dis = invoice::where('invoice_month',$month)->where('invoice_due',0)->count();
-            $count = invoice::where('invoice_month',$month)->count('invoice_due');
-            echo $count-$dis.' , ';
+            echo $month;
        }
     
 
@@ -102,8 +102,8 @@ class invoiceController extends Controller
             $data = admin::where('id',Session::get('adminId'))->first();
             $invoiceData = invoice::select('invoice_month')->groupBy('invoice_month')->orderBy('id','desc')->get();
             
-           return view('admin.invoiceSelectMonth',compact('data','invoiceData'));
-          
+            return view('admin.invoiceSelectMonth',compact('data','invoiceData'));
+
         }
    }
 
@@ -115,10 +115,11 @@ class invoiceController extends Controller
    function viewInoiceData($month){
         $data = array();
         if(Session::has('adminId')){
+            $studentId = student::all();
             $data = admin::where('id',Session::get('adminId'))->first();
             $invoiceMonthData =  invoice::where('invoice_month',$month)->get();
             $monthTotalDue = invoice::where('invoice_month',$month)->sum('invoice_due');
-            return view('admin.viewInvoiceMonth',compact('data','invoiceMonthData','monthTotalDue'));
+            return view('admin.viewInvoiceMonth',compact('data','invoiceMonthData','monthTotalDue','studentId'));
         }   
    }
 
